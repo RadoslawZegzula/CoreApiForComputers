@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 namespace CoreApiForComputers.Controllers
 {
     [ApiController]
-    [Route("/api/cpu")]
-    public class CpuController : ControllerBase
+    [Route("api/v{version:apiVersion}/cpus")]
+    [Produces("application/xml")]
+    public class CpusController : ControllerBase
     {
         private readonly IDatabaseAcces database;
-        public CpuController()
+        public CpusController()
         {
             database = new MemoryDatabase();
         }
