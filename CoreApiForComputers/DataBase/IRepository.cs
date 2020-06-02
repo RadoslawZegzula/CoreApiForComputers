@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CoreApiForComputers.DataBase
 {
-    public interface IDatabaseAcces
+    public interface IRepository
     {
         public void Create();
         public IEnumerable<T> Read<T>();

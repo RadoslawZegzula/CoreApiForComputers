@@ -13,10 +13,10 @@ namespace CoreApiForComputers.Controllers
     [Produces("application/xml")]
     public class CpusController : ControllerBase
     {
-        private readonly IDatabaseAcces database;
+        private readonly IRepository database;
         public CpusController()
         {
-            database = new MemoryDatabase();
+            database = new MemoryRepository();
         }
         [HttpGet()]
         public IActionResult GetCpu()

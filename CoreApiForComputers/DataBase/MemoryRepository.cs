@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoreApiForComputers.DataBase
 {
-    public class MemoryDatabase : IDatabaseAcces
+    public class MemoryRepository : IRepository
     {
         public void Create()
         {
