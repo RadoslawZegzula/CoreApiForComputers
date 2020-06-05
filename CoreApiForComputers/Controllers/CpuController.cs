@@ -32,5 +32,19 @@ namespace CoreApiForComputers.Controllers
             return Ok(cpuEntities);
         }
 
+        /// <summary>
+        /// Get cpu
+        /// </summary>
+        /// <param name="cpuId">The id of the cpu you want to get</param>
+        /// <returns>An ActionResult of type Cpu </returns>
+        [HttpGet()]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public ActionResult<CpuEntity> GetCpu(int cpuId)
+        {
+            var cpuEntity = database.ReadById<CpuEntity>(cpuId);
+
+            return Ok(cpuEntity);
+        }
+
     }
 }

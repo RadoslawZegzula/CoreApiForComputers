@@ -9,6 +9,7 @@ namespace CoreApiForComputers.DataBase
     {
         public void Create();
         public IEnumerable<T> Read<T>();
+        public IEnumerable<T> ReadById<T>(int id);
         public void Update();
         public void Delete <T>();
 

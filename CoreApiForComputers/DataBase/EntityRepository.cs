@@ -24,6 +24,11 @@ namespace CoreApiForComputers.DataBase
             return (IEnumerable<T>) _context.CpuEntityContext;
         }
 
+        public IEnumerable<T> ReadById<T>(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update()
         {
             throw new NotImplementedException();
