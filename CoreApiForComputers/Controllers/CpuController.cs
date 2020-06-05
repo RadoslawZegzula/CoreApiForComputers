@@ -1,5 +1,6 @@
 ﻿using CoreApiForComputers.DataBase;
 using CoreApiForComputers.Models.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,13 @@ namespace CoreApiForComputers.Controllers
         {
             database = new MemoryRepository();
         }
+
+        /// <summary>
+        /// Get cpus 
+        /// </summary>
+        /// <returns>An ActionResult of type IEnumerable of Cpu </returns>
         [HttpGet()]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult GetCpu()
         {
             var cpuEntities = database.Read<CpuEntity>();
