@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,10 +26,26 @@ namespace CoreApiForComputers
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(
+
                 setup =>
-                {       
-            setup.OutputFormatters.Add(new XmlSerializerOutputFormatter());
-            setup.EnableEndpointRouting = false;
+                {
+                    setup.Filters.Add(
+                        new ProducesResponseTypeAttribute(StatusCodes.Status400BadRequest));
+                    setup.Filters.Add(
+                        new ProducesResponseTypeAttribute(StatusCodes.Status406NotAcceptable));
+                    setup.Filters.Add(
+                        new ProducesResponseTypeAttribute(StatusCodes.Status500InternalServerError));
+                    setup.Filters.Add(
+                        new ProducesDefaultResponseTypeAttribute());
+                    setup.Filters.Add(
+                        new ProducesResponseTypeAttribute(StatusCodes.Status401Unauthorized));
+
+                    setup.Filters.Add(
+                        new AuthorizeFilter());
+
+
+                    setup.OutputFormatters.Add(new XmlSerializerOutputFormatter());
+                    setup.EnableEndpointRouting = false;
                 });
 
             services.AddVersionedApiExplorer(setupAction =>
