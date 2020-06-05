@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace CoreApiForComputers
 {
@@ -67,6 +68,25 @@ namespace CoreApiForComputers
                     });
 
                 }
+
+                setupAction.AddSecurityDefinition("basicAuth", new OpenApiSecurityScheme()
+                {
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "basic",
+                    Description = "Input your username and password to access this API"
+                });
+
+                setupAction.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "basicAuth" }
+                        }, new List<string>() }
+                });
+
                 setupAction.DocInclusionPredicate((documentName, apiDescription) =>
                 {
                     var actionApiVersionModel = apiDescription.ActionDescriptor
@@ -114,6 +134,7 @@ namespace CoreApiForComputers
                 setup.RoutePrefix = "";
             });
 
+            app.UseAuthentication();
             app.UseMvc();
         }
     }
