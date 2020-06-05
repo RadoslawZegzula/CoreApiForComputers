@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using CoreApiForComputers.Authentication;
 using Microsoft.AspNetCore.Authentication;
@@ -122,6 +124,11 @@ namespace CoreApiForComputers
                     return actionApiVersionModel.ImplementedApiVersions.Any(v =>
                         $"CoreApiForComputers{v}" == documentName);
                 });
+
+                var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
+
+                setupAction.IncludeXmlComments(xmlCommentsFullPath);
             });
           
 
