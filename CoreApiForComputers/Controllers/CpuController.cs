@@ -37,7 +37,7 @@ namespace CoreApiForComputers.Controllers
         /// </summary>
         /// <param name="cpuId">The id of the cpu you want to get</param>
         /// <returns>An ActionResult of type Cpu </returns>
-        [HttpGet()]
+        [HttpGet("{cpuId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<CpuEntity> GetCpu(int cpuId)
         {
