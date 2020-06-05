@@ -1,4 +1,6 @@
-﻿using CoreApiForComputers.DataBase.InMemory;
+﻿using CoreApiForComputers.Controllers;
+using CoreApiForComputers.DataBase.InMemory;
+using CoreApiForComputers.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +10,11 @@ namespace CoreApiForComputers.DataBase
 {
     public class MemoryRepository : IRepository
     {
+        private readonly IEnumerable<CpuEntity> cpus;
+        public MemoryRepository()
+        {
+            cpus = new CpuInMemory().ReturnCpus();
+        }
         public void Create()
         {
             throw new NotImplementedException();
@@ -20,9 +27,13 @@ namespace CoreApiForComputers.DataBase
 
         public IEnumerable<T> Read<T>()
         {
-            var cpuEntities = (IEnumerable<T>) new CpuInMemory().ReturnCpus();
+            return (IEnumerable<T>) cpus;
+        }
 
-            return cpuEntities;
+        public IEnumerable<T> ReadById<T>(int id)
+        {
+            var cpuEntity = cpus.Where(c => c.Id == id);
+            return (IEnumerable<T>) cpuEntity;
         }
 
         public void Update()
