@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CoreApiForComputers</name>
+    </assembly>
+    <members>
+        <member name="M:CoreApiForComputers.Controllers.CpusController.GetCpu">
+            <summary>
+            Get cpus 
+            </summary>
+            <returns>An ActionResult of type IEnumerable of Cpu </returns>
+        </member>
+        <member name="M:CoreApiForComputers.Controllers.CpusController.GetCpu(System.Int32)">
+            <summary>
+            Get cpu
+            </summary>
+            <param name="cpuId">The id of the cpu you want to get</param>
+            <returns>An ActionResult of type Cpu </returns>
+        </member>
+        <member name="T:CoreApiForComputers.Models.Entities.CpuEntity">
+            <summary>
+            The model of central_processing_unit which purpose is to be stored and retrieved from database
+            </summary>
+        </member>
+        <member name="P:CoreApiForComputers.Models.Entities.CpuEntity.Id">
+            <summary>
+            The Id of central processing unit
+            </summary>
+        </member>
+        <member name="P:CoreApiForComputers.Models.Entities.CpuEntity.Frequency">
+            <summary>
+            The frequency of central_processing_unit
+            </summary>
+        </member>
+        <member name="P:CoreApiForComputers.Models.Entities.CpuEntity.Cores">
+            <summary>
+            The number of cores in the central_processing_unit
+            </summary>
+        </member>
+        <member name="P:CoreApiForComputers.Models.Entities.CpuEntity.Socket">
+            <summary>
+            The required motherboard socket for central_processing_unit
+            </summary>
+        </member>
+        <member name="P:CoreApiForComputers.Models.Entities.CpuEntity.Tdp">
+            <summary>
+            The thermal_design_power of central_processing_unit
+            </summary>
+        </member>
+    </members>
+</doc>
