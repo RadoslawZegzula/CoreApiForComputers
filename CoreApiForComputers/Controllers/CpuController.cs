@@ -26,7 +26,7 @@ namespace CoreApiForComputers.Controllers
         /// <returns>An ActionResult of type IEnumerable of Cpu </returns>
         [HttpGet()]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult GetCpu()
+        public ActionResult<IEnumerable<CpuEntity>> GetCpu()
         {
             var cpuEntities = database.Read<CpuEntity>();
             return Ok(cpuEntities);
