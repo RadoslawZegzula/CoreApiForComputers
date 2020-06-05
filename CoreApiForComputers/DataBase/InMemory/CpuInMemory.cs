@@ -16,14 +16,17 @@ namespace CoreApiForComputers.DataBase.InMemory
             {
             new CpuEntity()
             {
+                Id = 1,
                 Cores = 1
             },
             new CpuEntity()
             {
+                Id = 2,
                 Cores = 22
             },
             new CpuEntity()
             {
+                Id = 3,
                 Cores = 333
             },
             };
