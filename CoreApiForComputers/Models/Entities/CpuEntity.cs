@@ -11,7 +11,7 @@ namespace CoreApiForComputers.Models.Entities
     public class CpuEntity
     {
         /// <summary>
-        /// The Id of central processing unit
+        /// The Id of central_processing_unit
         /// </summary>
         public int Id { get; set; }
         /// <summary>

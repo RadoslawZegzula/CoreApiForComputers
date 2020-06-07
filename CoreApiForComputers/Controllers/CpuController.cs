@@ -21,9 +21,9 @@ namespace CoreApiForComputers.Controllers
         }
 
         /// <summary>
-        /// Get cpus 
+        /// Get central_processing_units 
         /// </summary>
-        /// <returns>An ActionResult of type IEnumerable of Cpu </returns>
+        /// <returns>An ActionResult of type IEnumerable of central_processing_unit </returns>
         [HttpGet()]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<IEnumerable<CpuEntity>> GetCpu()
@@ -33,10 +33,10 @@ namespace CoreApiForComputers.Controllers
         }
 
         /// <summary>
-        /// Get cpu
+        /// Get one central_processing_unit
         /// </summary>
-        /// <param name="cpuId">The id of the cpu you want to get</param>
-        /// <returns>An ActionResult of type Cpu </returns>
+        /// <param name="cpuId">The id of the CpuEntity you want to get</param>
+        /// <returns>An ActionResult of type CpuEntity </returns>
         [HttpGet("{cpuId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<CpuEntity> GetCpu(int cpuId)
