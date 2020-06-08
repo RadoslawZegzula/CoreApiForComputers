@@ -9,7 +9,7 @@ namespace CoreApiForComputers.DataBase
     {
         private static readonly EntityContext _context = new EntityContext();
 
-        public void Create()
+        public void Create<T>(T part)
         {
             throw new NotImplementedException();
         }

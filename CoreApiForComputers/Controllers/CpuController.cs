@@ -21,23 +21,23 @@ namespace CoreApiForComputers.Controllers
         }
 
         /// <summary>
-        /// Get cpus 
+        /// Get central_processing_units 
         /// </summary>
-        /// <returns>An ActionResult of type IEnumerable of Cpu </returns>
-        [HttpGet()]
+        /// <returns>An ActionResult of type IEnumerable of central_processing_unit </returns>
+        [HttpGet(Name = "GetCpus")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<IEnumerable<CpuEntity>> GetCpu()
+        public ActionResult<IEnumerable<CpuEntity>> GetCpus()
         {
             var cpuEntities = database.Read<CpuEntity>();
             return Ok(cpuEntities);
         }
 
         /// <summary>
-        /// Get cpu
+        /// Get one central_processing_unit
         /// </summary>
-        /// <param name="cpuId">The id of the cpu you want to get</param>
-        /// <returns>An ActionResult of type Cpu </returns>
-        [HttpGet("{cpuId}")]
+        /// <param name="cpuId">The id of the CpuEntity you want to get</param>
+        /// <returns>An ActionResult of type CpuEntity </returns>
+        [HttpGet("{cpuId}", Name = "GetCpu")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<CpuEntity> GetCpu(int cpuId)
         {
@@ -46,5 +46,22 @@ namespace CoreApiForComputers.Controllers
             return Ok(cpuEntity);
         }
 
+        /// <summary>
+        /// Create one central_processing_unit
+        /// </summary>
+        /// <param name="cpuForCreation">The central_processing_unit to create</param>
+        /// <returns>An ActionResult of type CpuEntity </returns>
+        [HttpPost()]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public ActionResult<CpuEntity> GetCpu([FromBody] CpuEntity cpuForCreation)
+        {
+            if (database.ReadById<CpuEntity>(cpuForCreation.Id) != null)
+            {
+                return UnprocessableEntity();
+            }
+
+            database.Create(cpuForCreation);
+            return CreatedAtRoute("GetCpu", new {cpuId = cpuForCreation.Id }, cpuForCreation);
+        }
     }
 }
