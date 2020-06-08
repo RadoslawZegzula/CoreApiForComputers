@@ -53,9 +53,9 @@ namespace CoreApiForComputers.Controllers
         /// <returns>An ActionResult of type CpuEntity </returns>
         [HttpPost()]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        public ActionResult<CpuEntity> GetCpu([FromBody] CpuEntity cpuForCreation)
+        public ActionResult<CpuEntity> CreateCpu([FromBody] CpuEntity cpuForCreation)
         {
-            if (database.ReadById<CpuEntity>(cpuForCreation.Id) != null)
+            if (database.ReadById<CpuEntity>(cpuForCreation.Id) == null)
             {
                 return UnprocessableEntity();
             }
