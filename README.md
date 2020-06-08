@@ -4,8 +4,8 @@ ASP.Core API that I am creating to
 expand my programming skills.
 
 # Authorize
-username = username
-password = password
+username = username  
+password = password  
 
 # Live Example
 https://coreapiforcomputerssolution-dev-as.azurewebsites.net/index.html
