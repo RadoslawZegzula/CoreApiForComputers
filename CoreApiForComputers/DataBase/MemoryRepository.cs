@@ -10,10 +10,10 @@ namespace CoreApiForComputers.DataBase
 {
     public class MemoryRepository : IRepository
     {
-        private readonly List<CpuEntity> cpus;
+        private static readonly List<CpuEntity> cpus = new CpuInMemory().ReturnCpus();
         public MemoryRepository()
         {
-            cpus = new CpuInMemory().ReturnCpus();
+
         }
 
         public void Create<T>(T part)

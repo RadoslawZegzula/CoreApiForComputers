@@ -8,9 +8,9 @@ namespace CoreApiForComputers.DataBase.InMemory
 {
     public class CpuInMemory
     {
-        private List<CpuEntity> cpus;
+        private static readonly List<CpuEntity> cpus;
 
-        public CpuInMemory()
+        static CpuInMemory()
         {
             cpus = new List<CpuEntity>()
             {
@@ -31,6 +31,7 @@ namespace CoreApiForComputers.DataBase.InMemory
             },
             };
         }
+
         public List<CpuEntity> ReturnCpus()
         {
             return cpus;
