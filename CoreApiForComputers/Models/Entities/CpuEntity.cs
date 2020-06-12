@@ -8,12 +8,8 @@ namespace CoreApiForComputers.Models.Entities
     /// <summary>
     /// The model of central_processing_unit which purpose is to be stored and retrieved from database
     /// </summary>
-    public class CpuEntity
+    public class CpuEntity : BaseEntityOfParts
     {
-        /// <summary>
-        /// The Id of central_processing_unit
-        /// </summary>
-        public int Id { get; set; }
         /// <summary>
         /// The frequency of central_processing_unit
         /// </summary>

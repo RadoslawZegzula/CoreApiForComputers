@@ -8,11 +8,11 @@ namespace CoreApiForComputers.DataBase.InMemory
 {
     public class CpuInMemory
     {
-        private IEnumerable<CpuEntity> cpus;
+        private static readonly List<CpuEntity> cpus;
 
-        public CpuInMemory()
+        static CpuInMemory()
         {
-            cpus = new CpuEntity[]
+            cpus = new List<CpuEntity>()
             {
             new CpuEntity()
             {
@@ -31,7 +31,8 @@ namespace CoreApiForComputers.DataBase.InMemory
             },
             };
         }
-        public IEnumerable<CpuEntity> ReturnCpus()
+
+        public List<CpuEntity> ReturnCpus()
         {
             return cpus;
         }

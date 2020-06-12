@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\Users\Radek\source\repos\CoreApiForComputersSolution\CoreApiForComputers\CoreApiForComputers.xml</DocumentationFile>
+    <DocumentationFile>CoreApiForComputers.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
