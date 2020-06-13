@@ -2,22 +2,26 @@
 using CoreApiForComputers.Models.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CoreApiForComputers.Controllers
 {
+    /// <summary>
+    /// Controller for central_processing_units
+    /// </summary>
     [ApiController]
     [Route("api/v{version:apiVersion}/cpus")]
     [Produces("application/xml")]
     public class CpusController : ControllerBase
     {
         private readonly IRepository database;
-        public CpusController()
+        /// <summary>
+        /// Main  
+        /// </summary>
+        /// <param name="data"></param>
+        public CpusController(IRepository data)
         {
-            database = new MemoryRepository();
+            database = data;
         }
 
         /// <summary>
