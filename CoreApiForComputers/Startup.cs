@@ -23,13 +23,12 @@ using Microsoft.OpenApi.Models;
 namespace CoreApiForComputers
 {
     /// <summary>
-    /// Class methods ConfigureServices() and Configure() are called
+    /// Contains methods ConfigureServices() and Configure() that are called
     /// by the ASP.NET Core runtime when the app starts
     /// </summary>
     public class Startup
     {
         /// <summary>
-        /// Startup method
         /// </summary>
         /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
@@ -38,12 +37,9 @@ namespace CoreApiForComputers
         }
 
         /// <summary>
-        ///  Configuration interface
         /// </summary>
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         /// <summary>
         /// Services are registered in ConfigureServices and consumed across the app 
         /// via dependency injection (DI) or ApplicationServices.
@@ -161,7 +157,8 @@ namespace CoreApiForComputers
 
 
         /// <summary>
-        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// This method gets called by the runtime and is used 
+        /// to configure the HTTP request pipeline.
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>

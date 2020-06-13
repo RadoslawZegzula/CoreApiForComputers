@@ -10,8 +10,18 @@ using System.Threading.Tasks;
 
 namespace CoreApiForComputers.Authentication
 {
+    /// <summary>
+    /// Stores authentication logic  
+    /// </summary>
     public class BasicAuthenticationHandler: AuthenticationHandler<AuthenticationSchemeOptions>
-    {      
+    {   
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="options"></param>
+        /// <param name="logger"></param>
+        /// <param name="encoder"></param>
+        /// <param name="clock"></param>
         public BasicAuthenticationHandler(
             IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger,
@@ -21,6 +31,9 @@ namespace CoreApiForComputers.Authentication
         {
         }
 
+        /// <summary>
+        /// </summary>
+        /// <returns>The authentication result</returns>
         protected override Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             if (!Request.Headers.ContainsKey("Authorization"))
