@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace CoreApiForComputers.DataBase.InMemory
 {
+    /// <summary>
+    /// Stores central_processing_units
+    /// in a memory
+    /// </summary>
     public class CpuInMemory
     {
         private static readonly List<CpuEntity> cpus;
@@ -32,6 +36,10 @@ namespace CoreApiForComputers.DataBase.InMemory
             };
         }
 
+        /// <summary>
+        /// Returns a collection
+        /// </summary>
+        /// <returns>The central_processing_units </returns>
         public List<CpuEntity> ReturnCpus()
         {
             return cpus;

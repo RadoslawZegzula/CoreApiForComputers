@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using CoreApiForComputers.Authentication;
+using CoreApiForComputers.DataBase;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,20 +15,41 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
 namespace CoreApiForComputers
 {
+    /// <summary>
+    /// Contains methods ConfigureServices() and Configure() that are called
+    /// by the ASP.NET Core runtime when the app starts
+    /// </summary>
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        /// <summary>
+        /// </summary>
+        /// <param name="configuration"></param>
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        /// <summary>
+        /// </summary>
+        public IConfiguration Configuration { get; }
+
+        /// <summary>
+        /// Services are registered in ConfigureServices and consumed across the app 
+        /// via dependency injection (DI) or ApplicationServices.
+        /// </summary>
+        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(
+            services.AddScoped<IRepository,MemoryRepository>();
 
+            services.AddMvc(
                 setup =>
                 {
                     setup.Filters.Add(
@@ -74,12 +95,12 @@ namespace CoreApiForComputers
                 {
                     setupAction.SwaggerDoc(
                     $"CoreApiForComputers{description.GroupName}",
-                    new Microsoft.OpenApi.Models.OpenApiInfo()
+                    new OpenApiInfo()
                     {
                         Title = "Computers API",
                         Version = description.ApiVersion.ToString(),
                         Description = "Through this API you can access parts and computers.",
-                        Contact = new Microsoft.OpenApi.Models.OpenApiContact()
+                        Contact = new OpenApiContact()
                         {
                             Email = "radoslaw.lukasz.zegzula@gmail.com",
                             Name = "Rados³aw Zegzu³a"
@@ -134,9 +155,17 @@ namespace CoreApiForComputers
 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
+        /// <summary>
+        /// This method gets called by the runtime and is used 
+        /// to configure the HTTP request pipeline.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
+        /// <param name="apiVersionDescriptionProvider"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider apiVersionDescriptionProvider)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

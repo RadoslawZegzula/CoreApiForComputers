@@ -2,26 +2,32 @@
 using CoreApiForComputers.Models.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CoreApiForComputers.Controllers
 {
+    /// <summary>
+    /// Controller for central_processing_units
+    /// </summary>
     [ApiController]
     [Route("api/v{version:apiVersion}/cpus")]
     [Produces("application/xml")]
     public class CpusController : ControllerBase
     {
         private readonly IRepository database;
-        public CpusController()
+
+        /// <summary>
+        /// The constructor initialize database access
+        /// by dependency injection
+        /// </summary>
+        /// <param name="data"></param>
+        public CpusController(IRepository data)
         {
-            database = new MemoryRepository();
+            database = data;
         }
 
         /// <summary>
-        /// Get central_processing_units 
+        /// Returns collection of all central_processing_units
         /// </summary>
         /// <returns>An ActionResult of type IEnumerable of central_processing_unit </returns>
         [HttpGet(Name = "GetCpus")]
@@ -33,10 +39,10 @@ namespace CoreApiForComputers.Controllers
         }
 
         /// <summary>
-        /// Get one central_processing_unit
+        /// Returns one central_processing_unit
         /// </summary>
         /// <param name="cpuId">The id of the CpuEntity you want to get</param>
-        /// <returns>An ActionResult of type CpuEntity </returns>
+        /// <returns>An ActionResult of type CpuEntity</returns>
         [HttpGet("{cpuId}", Name = "GetCpu")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<CpuEntity> GetCpu(int cpuId)
@@ -47,7 +53,8 @@ namespace CoreApiForComputers.Controllers
         }
 
         /// <summary>
-        /// Create one central_processing_unit
+        /// Create one central_processing_unit and results 
+        /// created central_processing_unit
         /// </summary>
         /// <param name="cpuForCreation">The central_processing_unit to create</param>
         /// <returns>An ActionResult of type CpuEntity </returns>
