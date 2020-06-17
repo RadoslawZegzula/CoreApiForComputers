@@ -1,11 +1,9 @@
-﻿using CoreApiForComputers.Controllers;
-using CoreApiForComputers.DataBase.EntityInterfaces;
+﻿using CoreApiForComputers.DataBase.EntityInterfaces;
 using CoreApiForComputers.DataBase.InMemory;
 using CoreApiForComputers.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CoreApiForComputers.DataBase.EntityImplementations
 {
