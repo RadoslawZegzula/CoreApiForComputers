@@ -1,4 +1,4 @@
-﻿using CoreApiForComputers.DataBase;
+﻿using CoreApiForComputers.DataBase.EntityInterfaces;
 using CoreApiForComputers.Models.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

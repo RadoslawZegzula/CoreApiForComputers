@@ -1,6 +1,7 @@
-﻿using CoreApiForComputers.DataBase;
+﻿using CoreApiForComputers.DataBase.EntityImplementations;
+using CoreApiForComputers.DataBase.EntityInterfaces;
 
-namespace Microsoft.Extensions.DependencyInjection 
+namespace Microsoft.Extensions.DependencyInjection
 {
     /// <summary>
     /// This class clean up Startup.cs dependencies

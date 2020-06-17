@@ -1,7 +1,8 @@
-﻿using System;
+﻿using CoreApiForComputers.DataBase.EntityInterfaces;
+using System;
 using System.Collections.Generic;
 
-namespace CoreApiForComputers.DataBase
+namespace CoreApiForComputers.DataBase.EntityImplementations
 {
     /// <summary>
     /// Contains logic for repository in entity core
@@ -32,7 +33,7 @@ namespace CoreApiForComputers.DataBase
         /// <returns>Collection IEnumrable of objects</returns>
         public IEnumerable<T> Read<T>()
         {
-            return (IEnumerable<T>) _context.CpuEntityContext;
+            return (IEnumerable<T>)_context.CpuEntityContext;
         }
 
         /// <summary>

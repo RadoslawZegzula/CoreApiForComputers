@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CoreApiForComputers.DataBase
+namespace CoreApiForComputers.DataBase.EntityInterfaces
 {
     public interface IRepository
     {
@@ -8,7 +8,7 @@ namespace CoreApiForComputers.DataBase
         public IEnumerable<T> Read<T>();
         public IEnumerable<T> ReadById<T>(int id);
         public void Update();
-        public void Delete <T>();
+        public void Delete<T>();
 
 
     }

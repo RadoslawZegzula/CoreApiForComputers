@@ -1,4 +1,5 @@
 ﻿using CoreApiForComputers.Controllers;
+using CoreApiForComputers.DataBase.EntityInterfaces;
 using CoreApiForComputers.DataBase.InMemory;
 using CoreApiForComputers.Models.Entities;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CoreApiForComputers.DataBase
+namespace CoreApiForComputers.DataBase.EntityImplementations
 {
     public class MemoryRepository : IRepository
     {
@@ -18,7 +19,7 @@ namespace CoreApiForComputers.DataBase
 
         public void Create<T>(T part)
         {
-            if(part is CpuEntity)
+            if (part is CpuEntity)
             {
                 cpus.Add(part as CpuEntity);
             }
@@ -31,13 +32,13 @@ namespace CoreApiForComputers.DataBase
 
         public IEnumerable<T> Read<T>()
         {
-            return (IEnumerable<T>) cpus;
+            return (IEnumerable<T>)cpus;
         }
 
         public IEnumerable<T> ReadById<T>(int id)
         {
             var cpuEntity = cpus.Where(c => c.Id == id);
-            return (IEnumerable<T>) cpuEntity;
+            return (IEnumerable<T>)cpuEntity;
         }
 
         public void Update()
