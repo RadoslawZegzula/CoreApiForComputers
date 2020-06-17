@@ -47,7 +47,7 @@ namespace CoreApiForComputers
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDataModelsConfiguration();
+            services.AddRepositoryConfiguration();
 
             services.AddMvc(
                 setup =>

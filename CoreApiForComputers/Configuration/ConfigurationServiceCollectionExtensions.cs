@@ -8,11 +8,11 @@ namespace Microsoft.Extensions.DependencyInjection
     public static class ConfigurationServiceCollectionExtensions
     {
         /// <summary>
-        /// Contains database configurations
+        /// Contains repository configurations
         /// </summary>
         /// <param name="services"></param>
         /// <returns></returns>
-        public static IServiceCollection AddDataModelsConfiguration(this IServiceCollection services)
+        public static IServiceCollection AddRepositoryConfiguration(this IServiceCollection services)
         {
             services.AddScoped<IRepository, MemoryRepository>();
 
