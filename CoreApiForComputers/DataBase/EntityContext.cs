@@ -19,6 +19,12 @@ namespace CoreApiForComputers.DataBase
         public DbSet<CpuEntity> CpuEntityContext { get; set; }
 
         /// <summary>
+        /// The graphical_processing_unit
+        /// in database context
+        /// </summary>
+        public DbSet<GpuEntity> GpuEntityContext { get; set; }
+
+        /// <summary>
         /// The constructor to allow logging
         /// sql queries
         /// </summary>
