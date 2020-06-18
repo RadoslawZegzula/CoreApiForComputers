@@ -14,14 +14,17 @@ namespace CoreApiForComputers.Models.Entities
         /// The frequency of central_processing_unit
         /// </summary>
         public int Frequency { get; set; }
+
         /// <summary>
         /// The number of cores in the central_processing_unit
-        /// </summary>
+        /// </summary>    
         public int Cores { get; set; }
+
         /// <summary>
         /// The required motherboard socket for central_processing_unit
-        /// </summary>
+        /// </summary>      
         public string Socket { get; set; }
+
         /// <summary>
         /// The thermal_design_power of central_processing_unit
         /// </summary>
