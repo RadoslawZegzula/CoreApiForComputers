@@ -15,7 +15,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns></returns>
         public static IServiceCollection AddRepositoryConfiguration(this IServiceCollection services)
         {
-            services.AddScoped<IRepository, MemoryRepository>();
+            services.AddScoped<ICpuRepository, CpuMemoryRepository>();
 
             return services;
         }

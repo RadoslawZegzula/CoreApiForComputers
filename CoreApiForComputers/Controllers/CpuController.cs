@@ -14,14 +14,14 @@ namespace CoreApiForComputers.Controllers
     [Produces("application/xml")]
     public class CpusController : ControllerBase
     {
-        private readonly IRepository database;
+        private readonly ICpuRepository database;
 
         /// <summary>
         /// The constructor initialize database access
         /// by dependency injection
         /// </summary>
         /// <param name="data"></param>
-        public CpusController(IRepository data)
+        public CpusController(ICpuRepository data)
         {
             database = data;
         }
@@ -34,7 +34,7 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<IEnumerable<CpuEntity>> GetCpus()
         {
-            var cpuEntities = database.Read<CpuEntity>();
+            var cpuEntities = database.Read();
             return Ok(cpuEntities);
         }
 
@@ -47,7 +47,7 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<CpuEntity> GetCpu(int cpuId)
         {
-            var cpuEntity = database.ReadById<CpuEntity>(cpuId);
+            var cpuEntity = database.ReadById(cpuId);
 
             return Ok(cpuEntity);
         }
@@ -62,7 +62,7 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         public ActionResult<CpuEntity> CreateCpu([FromBody] CpuEntity cpuForCreation)
         {
-            if (database.ReadById<CpuEntity>(cpuForCreation.Id) == null)
+            if (database.ReadById(cpuForCreation.Id) == null)
             {
                 return UnprocessableEntity();
             }
