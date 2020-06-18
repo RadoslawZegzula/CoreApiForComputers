@@ -6,7 +6,7 @@ namespace CoreApiForComputers.Controllers
     /// Controller for graphics processing unit
     /// </summary>
     [ApiController]
-    [Route("api/v{version:apiVersion}/cpus")]
+    [Route("api/v{version:apiVersion}/gpus")]
     [Produces("application/xml")]
     public class GpuController : ControllerBase
     {
