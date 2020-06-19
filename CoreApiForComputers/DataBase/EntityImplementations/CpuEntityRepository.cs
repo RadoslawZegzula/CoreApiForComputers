@@ -10,7 +10,7 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
     /// </summary>
     public class CpuEntityRepository : ICpuRepository
     {
-        private static readonly EntityContext _context = new EntityContext();
+        private static readonly EntityCoreContext _context = new EntityCoreContext();
 
         public void Create(CpuEntity part)
         {
