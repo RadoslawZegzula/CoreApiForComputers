@@ -54,7 +54,7 @@ namespace CoreApiForComputers.Controllers
 
         /// <summary>
         /// Create one graphics_processing_unit and results 
-        /// created central_processing_unit
+        /// created graphics_processing_unit
         /// </summary>
         /// <param name="gpuForCreation">The graphics_processing_unit to create</param>
         /// <returns>An ActionResult of type GpuEntity </returns>
