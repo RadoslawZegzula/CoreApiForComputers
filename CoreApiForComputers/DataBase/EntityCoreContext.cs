@@ -8,7 +8,7 @@ namespace CoreApiForComputers.DataBase
     /// <summary>
     /// Contains entity core context logic
     /// </summary>
-    public class EntityContext : DbContext
+    public class EntityCoreContext : DbContext
     {
         private readonly ILoggerFactory MyConsoleLoggerFactory;
 
@@ -28,7 +28,7 @@ namespace CoreApiForComputers.DataBase
         /// The constructor to allow logging
         /// sql queries
         /// </summary>
-        public EntityContext()
+        public EntityCoreContext()
         {
             IServiceCollection serviceCollection = new ServiceCollection();
             serviceCollection.AddLogging(builder => builder
