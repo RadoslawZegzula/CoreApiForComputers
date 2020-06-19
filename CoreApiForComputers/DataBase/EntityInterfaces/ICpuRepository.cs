@@ -11,6 +11,5 @@ namespace CoreApiForComputers.DataBase.EntityInterfaces
         public void Update();
         public void Delete();
 
-
     }
 }
