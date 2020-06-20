@@ -70,5 +70,25 @@ namespace CoreApiForComputers.Controllers
             database.Create(cpuForCreation);
             return CreatedAtRoute("GetCpu", new {cpuId = cpuForCreation.Id }, cpuForCreation);
         }
+
+        /// <summary>
+        /// Update one central_processing_unit if this exist
+        /// </summary>
+        /// <param name="cpuId">Identificator of central_processing_unit to update</param>
+        /// <param name="cpuForCreation">The central_processing_unit to update</param>
+        /// <returns>Nothing </returns>
+        [HttpPatch("{cpuId}")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public ActionResult<CpuEntity> UpdateCpu(int cpuId, [FromBody] CpuEntity cpuForCreation)
+        {
+            if (database.ReadById(cpuForCreation.Id) == null)
+            {
+                return NotFound();
+            }
+
+            database.Update(cpuId, cpuForCreation);
+
+            return NoContent();
+        }
     }
 }
