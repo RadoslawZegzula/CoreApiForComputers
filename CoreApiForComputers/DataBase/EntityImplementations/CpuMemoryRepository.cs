@@ -27,14 +27,15 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
             return cpuEntity;
         }
 
-        public void Update()
-        {
-            throw new NotImplementedException();
+        public void Update(int cpuId, CpuEntity cpuForCreation)
+        { 
+            cpus.Remove(ReadById(cpuId));
+            cpus.Add(cpuForCreation);
         }
 
-        public void Delete()
+        public void Delete(CpuEntity cpuForDelete)
         {
-            throw new NotImplementedException();
+            cpus.Remove(ReadById(cpuForDelete.Id));
         }
     }
 }
