@@ -1,9 +1,7 @@
 ﻿using CoreApiForComputers.DataBase.EntityInterfaces;
 using CoreApiForComputers.Models.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http.Headers;
 
 namespace CoreApiForComputers.DataBase.EntityImplementations
 {
@@ -24,9 +22,9 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
             return _context.CpuEntityContext;
         }
 
-        public CpuEntity ReadById(int id)
+        public CpuEntity ReadById(int cpuId)
         {
-            return _context.CpuEntityContext.FirstOrDefault(c => c.Id == id);
+            return _context.CpuEntityContext.FirstOrDefault(c => c.Id == cpuId);
         }
 
         public void Update(int cpuId, CpuEntity cpuForCreation)
