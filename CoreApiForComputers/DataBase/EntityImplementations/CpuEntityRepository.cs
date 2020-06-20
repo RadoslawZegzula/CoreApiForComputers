@@ -2,6 +2,8 @@
 using CoreApiForComputers.Models.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http.Headers;
 
 namespace CoreApiForComputers.DataBase.EntityImplementations
 {
@@ -14,25 +16,28 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
 
         public void Create(CpuEntity part)
         {
-            throw new NotImplementedException();
-        }
-
-        public CpuEntity ReadById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update()
-        {
-            throw new NotImplementedException();
+            _context.CpuEntityContext.Add(part);
+            _context.SaveChanges();
         }
         public IEnumerable<CpuEntity> Read()
         {
             return _context.CpuEntityContext;
         }
-        public void Delete()
+
+        public CpuEntity ReadById(int id)
         {
-            throw new NotImplementedException();
+            return _context.CpuEntityContext.FirstOrDefault(c => c.Id == id);
+        }
+
+        public void Update(int cpuId, CpuEntity cpuForCreation)
+        {
+            _context.CpuEntityContext.Update(cpuForCreation);
+            _context.SaveChanges();
+        }
+        public void Delete(CpuEntity cpuForCreation)
+        {
+            _context.CpuEntityContext.Remove(cpuForCreation);
+            _context.SaveChanges();
         }
 
     }
