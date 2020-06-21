@@ -90,5 +90,26 @@ namespace CoreApiForComputers.Controllers
 
             return NoContent();
         }
+
+        /// <summary>
+        /// Delete one central_processing_unit if this exist
+        /// </summary>
+        /// <param name="cpuId">Identificator of central_processing_unit for deletion</param>
+        /// <returns>Nothing</returns>
+        [HttpDelete("{cpuId}")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public ActionResult DeleteCpu(int cpuId)
+        {
+            var cpuToDelete = database.ReadById(cpuId);
+
+            if (cpuToDelete == null)
+            {
+                return NotFound();
+            }
+
+            database.Delete(cpuToDelete);
+
+            return NoContent();
+        }
     }
 }

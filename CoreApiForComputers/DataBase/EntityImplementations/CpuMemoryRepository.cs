@@ -1,7 +1,6 @@
 ﻿using CoreApiForComputers.DataBase.EntityInterfaces;
 using CoreApiForComputers.DataBase.InMemory;
 using CoreApiForComputers.Models.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -33,9 +32,9 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
             cpus.Add(cpuForCreation);
         }
 
-        public void Delete(CpuEntity cpuForDelete)
+        public void Delete(CpuEntity cpuForDeletion)
         {
-            cpus.Remove(ReadById(cpuForDelete.Id));
+            cpus.Remove(ReadById(cpuForDeletion.Id));
         }
     }
 }

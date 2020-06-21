@@ -9,7 +9,7 @@ namespace CoreApiForComputers.DataBase.EntityInterfaces
         public IEnumerable<CpuEntity> Read();
         public CpuEntity ReadById(int cpuId);
         public void Update(int cpuId, CpuEntity cpuForCreation);
-        public void Delete(CpuEntity cpuForDelete);
+        public void Delete(CpuEntity cpuForDeletion);
 
     }
 }

@@ -32,9 +32,9 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
             _context.CpuEntityContext.Update(cpuForCreation);
             _context.SaveChanges();
         }
-        public void Delete(CpuEntity cpuForCreation)
+        public void Delete(CpuEntity cpuForDeletion)
         {
-            _context.CpuEntityContext.Remove(cpuForCreation);
+            _context.CpuEntityContext.Remove(cpuForDeletion);
             _context.SaveChanges();
         }
 
