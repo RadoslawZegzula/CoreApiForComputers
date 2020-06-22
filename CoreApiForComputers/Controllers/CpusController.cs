@@ -47,7 +47,7 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<CpuEntity> GetCpu(int cpuId)
         {
-            var cpuEntity = database.ReadById(cpuId);
+            var cpuEntity = database.Read(cpuId);
 
             return Ok(cpuEntity);
         }
@@ -62,7 +62,7 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         public ActionResult<CpuEntity> CreateCpu([FromBody] CpuEntity cpuForCreation)
         {
-            if (database.ReadById(cpuForCreation.Id) == null)
+            if (database.Read(cpuForCreation.Id) == null)
             {
                 return UnprocessableEntity();
             }
@@ -81,7 +81,7 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         public ActionResult<CpuEntity> UpdateCpu(int cpuId, [FromBody] CpuEntity cpuForCreation)
         {
-            if (database.ReadById(cpuForCreation.Id) == null)
+            if (database.Read(cpuForCreation.Id) == null)
             {
                 return NotFound();
             }
@@ -100,7 +100,7 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         public ActionResult DeleteCpu(int cpuId)
         {
-            var cpuToDelete = database.ReadById(cpuId);
+            var cpuToDelete = database.Read(cpuId);
 
             if (cpuToDelete == null)
             {

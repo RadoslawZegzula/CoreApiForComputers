@@ -22,7 +22,7 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
             return _context.CpuEntityContext;
         }
 
-        public CpuEntity ReadById(int cpuId)
+        public CpuEntity Read(int cpuId)
         {
             return _context.CpuEntityContext.FirstOrDefault(c => c.Id == cpuId);
         }

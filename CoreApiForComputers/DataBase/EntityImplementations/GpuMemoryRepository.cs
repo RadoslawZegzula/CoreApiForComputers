@@ -21,7 +21,7 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
             return gpus;
         }
 
-        public GpuEntity ReadById(int id)
+        public GpuEntity Read(int id)
         {
             var gpuEntity = gpus.Where(c => c.Id == id).First();
             return gpuEntity;

@@ -20,7 +20,7 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
             return cpus;
         }
 
-        public CpuEntity ReadById(int id)
+        public CpuEntity Read(int id)
         {
             var cpuEntity = cpus.Where(c => c.Id == id).First();
             return cpuEntity;
@@ -28,13 +28,13 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
 
         public void Update(int cpuId, CpuEntity cpuForCreation)
         { 
-            cpus.Remove(ReadById(cpuId));
+            cpus.Remove(Read(cpuId));
             cpus.Add(cpuForCreation);
         }
 
         public void Delete(CpuEntity cpuForDeletion)
         {
-            cpus.Remove(ReadById(cpuForDeletion.Id));
+            cpus.Remove(Read(cpuForDeletion.Id));
         }
     }
 }

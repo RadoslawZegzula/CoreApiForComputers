@@ -47,7 +47,7 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<GpuEntity> GetGpu(int gpuId)
         {
-            var gpuEntity = database.ReadById(gpuId);
+            var gpuEntity = database.Read(gpuId);
 
             return Ok(gpuEntity);
         }
@@ -62,7 +62,7 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         public ActionResult<GpuEntity> CreateGpu([FromBody] GpuEntity gpuForCreation)
         {
-            if (database.ReadById(gpuForCreation.Id) == null)
+            if (database.Read(gpuForCreation.Id) == null)
             {
                 return UnprocessableEntity();
             }

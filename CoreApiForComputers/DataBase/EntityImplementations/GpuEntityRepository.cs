@@ -14,7 +14,7 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
             throw new NotImplementedException();
         }
 
-        public GpuEntity ReadById(int id)
+        public GpuEntity Read(int id)
         {
             throw new NotImplementedException();
         }
