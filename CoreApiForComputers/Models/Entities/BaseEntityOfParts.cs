@@ -6,7 +6,7 @@ namespace CoreApiForComputers.Models.Entities
     /// <summary>
     /// Provides common properties to reduce redundancy
     /// </summary>
-    public class BaseEntityOfParts
+    public abstract class BaseEntityOfParts
     {
         /// <summary>
         /// The uniquely identifier of part
