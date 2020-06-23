@@ -1,4 +1,5 @@
 ﻿using CoreApiForComputers.DataBase.EntityInterfaces;
+using CoreApiForComputers.FiltringParameters;
 using CoreApiForComputers.Models.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -35,6 +36,24 @@ namespace CoreApiForComputers.Controllers
         public ActionResult<IEnumerable<CpuEntity>> GetCpus()
         {
             var cpuEntities = database.Read();
+            return Ok(cpuEntities);
+        }
+
+        /// <summary>
+        /// Returns collection of a filtered central_processing_units
+        /// </summary>
+        /// <returns>An ActionResult of type IEnumerable of central_processing_unit </returns>
+        [HttpGet(Name = "GetCpusWithFilter")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public ActionResult<IEnumerable<CpuEntity>> GetCpus(
+            [FromQuery] BasePartFiltringParameters basePartFiltringParameters)
+        {
+            if (basePartFiltringParameters == null)
+            {
+                return BadRequest();
+            }
+
+            var cpuEntities = database.Read(basePartFiltringParameters);
             return Ok(cpuEntities);
         }
 

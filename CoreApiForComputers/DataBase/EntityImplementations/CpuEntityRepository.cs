@@ -1,5 +1,7 @@
 ﻿using CoreApiForComputers.DataBase.EntityInterfaces;
+using CoreApiForComputers.FiltringParameters;
 using CoreApiForComputers.Models.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,6 +27,23 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
         public CpuEntity Read(int cpuId)
         {
             return _context.CpuEntityContext.FirstOrDefault(c => c.Id == cpuId);
+        }
+
+        public IEnumerable<CpuEntity> Read(BasePartFiltringParameters parameters)
+        {
+
+            var cpuCollection = _context.CpuEntityContext as IQueryable<CpuEntity>;
+
+            if (parameters.MinPrice.HasValue)
+            {
+                cpuCollection.Where(c => c.Price >= parameters.MinPrice);
+            }
+            if (parameters.MaxPrice.HasValue)
+            {
+                cpuCollection.Where(c => c.Price <= parameters.MaxPrice);
+            }
+
+            return cpuCollection;
         }
 
         public void Update(int cpuId, CpuEntity cpuForCreation)
