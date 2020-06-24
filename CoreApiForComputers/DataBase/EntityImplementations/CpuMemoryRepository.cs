@@ -42,7 +42,7 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
                 cpuCollection = cpuCollection.Where(c => c.Price <= parameters.MaxPrice);
             }
 
-            return cpuCollection;
+            return cpuCollection.ToList();
         }
 
         public void Update(int cpuId, CpuEntity cpuForCreation)
