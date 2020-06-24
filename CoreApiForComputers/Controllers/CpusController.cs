@@ -43,7 +43,7 @@ namespace CoreApiForComputers.Controllers
         /// Returns collection of a filtered central_processing_units
         /// </summary>
         /// <returns>An ActionResult of type IEnumerable of central_processing_unit </returns>
-        [HttpGet(Name = "GetCpusWithFilter")]
+        [HttpGet("{basePartFiltringParameters}", Name = "GetCpusWithFilter")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<IEnumerable<CpuEntity>> GetCpusWithFilter(
             [FromBody] BasePartFiltringParameters basePartFiltringParameters)
