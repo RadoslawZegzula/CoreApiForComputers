@@ -35,11 +35,11 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
 
             if(parameters.MinPrice.HasValue)
             {
-                cpuCollection.Where(c => c.Price >= parameters.MinPrice);
+                cpuCollection = cpuCollection.Where(c => c.Price >= parameters.MinPrice);
             }
             if (parameters.MaxPrice.HasValue)
             {
-                cpuCollection.Where(c => c.Price <= parameters.MaxPrice);
+                cpuCollection = cpuCollection.Where(c => c.Price <= parameters.MaxPrice);
             }
 
             return cpuCollection;
