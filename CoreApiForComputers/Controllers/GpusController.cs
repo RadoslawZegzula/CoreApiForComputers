@@ -1,5 +1,6 @@
 ﻿using CoreApiForComputers.DataBase.EntityInterfaces;
 using CoreApiForComputers.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace CoreApiForComputers.Controllers
     [ApiController]
     [Route("api/v{version:apiVersion}/gpus")]
     [Produces("application/xml")]
+    [Authorize]
     public class GpusController : ControllerBase
     {
         private readonly IGpuRepository database;
