@@ -45,7 +45,7 @@ namespace CoreApiForComputers.Controllers
         /// <returns>An ActionResult of type IEnumerable of central_processing_unit </returns>
         [HttpGet("filter", Name = "GetCpusWithFilter")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<IEnumerable<CpuEntity>> GetCpusWithFilter(
+        public IActionResult GetCpusWithFilter(
             [FromQuery] BasePartFiltringParameters basePartFiltringParameters)
         {
             if (basePartFiltringParameters == null)
