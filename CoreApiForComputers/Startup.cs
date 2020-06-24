@@ -63,10 +63,6 @@ namespace CoreApiForComputers
                     setup.Filters.Add(
                         new ProducesResponseTypeAttribute(StatusCodes.Status401Unauthorized));
 
-                    setup.Filters.Add(
-                        new AuthorizeFilter());
-
-
                     setup.OutputFormatters.Add(new XmlSerializerOutputFormatter());
                     setup.EnableEndpointRouting = false;
                 });
