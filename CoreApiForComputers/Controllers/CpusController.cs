@@ -46,13 +46,13 @@ namespace CoreApiForComputers.Controllers
         [HttpGet(Name = "GetCpusWithFilter")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<IEnumerable<CpuEntity>> GetCpusWithFilter(
-            [FromQuery] BasePartFiltringParameters basePartFiltringParameters)
+            [FromBody] BasePartFiltringParameters basePartFiltringParameters)
         {
             if (basePartFiltringParameters == null)
             {
                 return BadRequest();
             }
-
+        
             var cpuEntities = database.Read(basePartFiltringParameters);
             return Ok(cpuEntities);
         }
