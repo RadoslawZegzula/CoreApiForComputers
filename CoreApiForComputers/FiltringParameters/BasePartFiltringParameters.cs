@@ -8,12 +8,12 @@ namespace CoreApiForComputers.FiltringParameters
     public class BasePartFiltringParameters
     {
         /// <summary>
-        /// Minimumm price of a product
+        /// The minimum price of a product
         /// </summary>
         public decimal? MinPrice { get; set; }
 
         /// <summary>
-        /// Maximum price of a product
+        /// The maximum price of a product
         /// </summary>
         public decimal? MaxPrice { get; set; }
 
