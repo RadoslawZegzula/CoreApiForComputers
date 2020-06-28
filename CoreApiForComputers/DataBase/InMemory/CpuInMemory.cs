@@ -7,7 +7,7 @@ namespace CoreApiForComputers.DataBase.InMemory
     /// Stores central_processing_units
     /// in a memory
     /// </summary>
-    public class CpuInMemory
+    public static class CpuInMemory
     {
         private static readonly List<CpuEntity> cpus;
 
@@ -37,7 +37,7 @@ namespace CoreApiForComputers.DataBase.InMemory
         /// Returns a collection
         /// </summary>
         /// <returns>The central_processing_units </returns>
-        public List<CpuEntity> ReturnCpus()
+        public static List<CpuEntity> ReturnCpus()
         {
             return cpus;
         }

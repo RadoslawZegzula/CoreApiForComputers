@@ -15,14 +15,14 @@ namespace CoreApiForComputers.Controllers
     [Produces("application/xml")]
     public class CpusController : ControllerBase
     {
-        private readonly ICpuRepository database;
+        private readonly IGenericRepository<CpuEntity> database;
 
         /// <summary>
         /// The constructor initialize database access
         /// by dependency injection
         /// </summary>
         /// <param name="data"></param>
-        public CpusController(ICpuRepository data)
+        public CpusController(IGenericRepository<CpuEntity> data)
         {
             database = data;
         }
@@ -35,7 +35,7 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<IEnumerable<CpuEntity>> GetCpus()
         {
-            var cpuEntities = database.Read();
+            var cpuEntities = database.Read<CpuEntity>();
             return Ok(cpuEntities);
         }
 
@@ -53,7 +53,7 @@ namespace CoreApiForComputers.Controllers
                 return BadRequest();
             }
         
-            var cpuEntities = database.Read(basePartFiltringParameters);
+            var cpuEntities = database.Read<CpuEntity>(basePartFiltringParameters);
             return Ok(cpuEntities);
         }
 
@@ -66,7 +66,7 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<CpuEntity> GetCpu(int cpuId)
         {
-            var cpuEntity = database.Read(cpuId);
+            var cpuEntity = database.Read<CpuEntity>(cpuId);
 
             return Ok(cpuEntity);
         }
@@ -81,12 +81,12 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         public ActionResult<CpuEntity> CreateCpu([FromBody] CpuEntity cpuForCreation)
         {
-            if (database.Read(cpuForCreation.Id) == null)
+            if (database.Read<CpuEntity>(cpuForCreation.Id) == null)
             {
                 return UnprocessableEntity();
             }
 
-            database.Create(cpuForCreation);
+            database.Create<CpuEntity>(cpuForCreation);
             return CreatedAtRoute("GetCpu", new {cpuId = cpuForCreation.Id }, cpuForCreation);
         }
 
@@ -100,12 +100,12 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         public ActionResult<CpuEntity> UpdateCpu(int cpuId, [FromBody] CpuEntity cpuForCreation)
         {
-            if (database.Read(cpuForCreation.Id) == null)
+            if (database.Read<CpuEntity>(cpuForCreation.Id) == null)
             {
                 return NotFound();
             }
 
-            database.Update(cpuId, cpuForCreation);
+            database.Update<CpuEntity>(cpuForCreation);
 
             return NoContent();
         }
@@ -119,14 +119,14 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         public ActionResult DeleteCpu(int cpuId)
         {
-            var cpuToDelete = database.Read(cpuId);
+            var cpuToDelete = database.Read<CpuEntity>(cpuId);
 
             if (cpuToDelete == null)
             {
                 return NotFound();
             }
 
-            database.Delete(cpuToDelete);
+            database.Delete<CpuEntity>(cpuToDelete);
 
             return NoContent();
         }

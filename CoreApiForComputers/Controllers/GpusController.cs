@@ -16,14 +16,14 @@ namespace CoreApiForComputers.Controllers
     [Authorize]
     public class GpusController : ControllerBase
     {
-        private readonly IGpuRepository database;
+        private readonly IGenericRepository<GpuEntity> database;
 
         /// <summary>
         /// The constructor that initialize database access
         /// by dependency injection
         /// </summary>
         /// <param name="data"></param>
-        public GpusController(IGpuRepository data)
+        public GpusController(IGenericRepository<GpuEntity> data)
         {
             database = data;
         }
@@ -36,7 +36,7 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<IEnumerable<GpuEntity>> GetGpus()
         {
-            var gpuEntities = database.Read();
+            var gpuEntities = database.Read<GpuEntity>();
             return Ok(gpuEntities);
         }
 
@@ -49,7 +49,7 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<GpuEntity> GetGpu(int gpuId)
         {
-            var gpuEntity = database.Read(gpuId);
+            var gpuEntity = database.Read<GpuEntity>(gpuId);
 
             return Ok(gpuEntity);
         }
@@ -64,12 +64,12 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         public ActionResult<GpuEntity> CreateGpu([FromBody] GpuEntity gpuForCreation)
         {
-            if (database.Read(gpuForCreation.Id) == null)
+            if (database.Read<GpuEntity>(gpuForCreation.Id) == null)
             {
                 return UnprocessableEntity();
             }
 
-            database.Create(gpuForCreation);
+            database.Create<GpuEntity>(gpuForCreation);
             return CreatedAtRoute("GetGpu", new { gpuId = gpuForCreation.Id }, gpuForCreation);
         }
     }

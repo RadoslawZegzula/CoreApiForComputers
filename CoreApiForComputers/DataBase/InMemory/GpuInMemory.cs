@@ -7,7 +7,7 @@ namespace CoreApiForComputers.DataBase.InMemory
     /// Stores graphics_processing_units
     /// in a memory
     /// </summary>
-    public class GpuInMemory
+    public static class GpuInMemory
     {
         private static readonly List<GpuEntity> gpus;
 
@@ -37,7 +37,7 @@ namespace CoreApiForComputers.DataBase.InMemory
         /// Returns a collection
         /// </summary>
         /// <returns>The graphics_processing_units </returns>
-        public List<GpuEntity> ReturnGpus()
+        public static List<GpuEntity> ReturnGpus()
         {
             return gpus;
         }
