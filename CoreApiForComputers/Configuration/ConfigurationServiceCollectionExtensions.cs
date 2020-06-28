@@ -1,5 +1,6 @@
 ﻿using CoreApiForComputers.DataBase.EntityImplementations;
 using CoreApiForComputers.DataBase.EntityInterfaces;
+using CoreApiForComputers.Models.Entities;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -15,8 +16,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns></returns>
         public static IServiceCollection AddRepositoryConfiguration(this IServiceCollection services)
         {
-            services.AddScoped<ICpuRepository, CpuMemoryRepository>();
-            services.AddScoped<IGpuRepository, GpuMemoryRepository>();
+            services.AddScoped(typeof(ICpuRepository<>), typeof(CpuEntityRepository<>));
 
             return services;
         }
