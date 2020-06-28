@@ -16,7 +16,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns></returns>
         public static IServiceCollection AddRepositoryConfiguration(this IServiceCollection services)
         {
-            services.AddScoped(typeof(IGenericRepository<>), typeof(EntityGenericRepository<>));
+            services.AddScoped(typeof(IGenericRepository<>), typeof(MemoryGenericRepository<>));
 
             return services;
         }
