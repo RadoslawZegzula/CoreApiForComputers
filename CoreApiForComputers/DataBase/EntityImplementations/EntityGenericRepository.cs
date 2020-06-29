@@ -2,8 +2,6 @@
 using CoreApiForComputers.FiltringParameters;
 using CoreApiForComputers.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
