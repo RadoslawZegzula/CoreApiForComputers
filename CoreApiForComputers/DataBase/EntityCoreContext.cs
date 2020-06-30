@@ -16,13 +16,13 @@ namespace CoreApiForComputers.DataBase
         /// The central_processing_unit
         /// in database context
         /// </summary>
-        public DbSet<CpuEntity> CpuEntityContext { get; set; }
+        public DbSet<CpuEntity> Cpu { get; set; }
 
         /// <summary>
         /// The graphical_processing_unit
         /// in database context
         /// </summary>
-        public DbSet<GpuEntity> GpuEntityContext { get; set; }
+        public DbSet<GpuEntity> Gpu { get; set; }
 
         /// <summary>
         /// The constructor to allow logging
