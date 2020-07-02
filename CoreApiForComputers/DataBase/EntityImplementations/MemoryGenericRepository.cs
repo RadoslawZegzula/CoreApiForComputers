@@ -13,7 +13,7 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
     /// <typeparam name="TEntity"></typeparam>
     public class MemoryGenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntityOfParts
     {
-        //private static readonly List<CpuEntity> cpus = new CpuInMemory().ReturnCpus();
+
         private readonly List<TEntity> entities;
 
         /// <summary>
