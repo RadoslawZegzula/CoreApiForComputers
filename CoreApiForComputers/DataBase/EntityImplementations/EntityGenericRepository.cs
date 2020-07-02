@@ -8,7 +8,7 @@ using System.Linq;
 namespace CoreApiForComputers.DataBase.EntityImplementations
 {
     /// <summary>
-    /// Contains logic for repository in entity core
+    /// Contains logic for entity core repository implementation
     /// </summary>
     public class EntityGenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntityOfParts
     {
@@ -16,8 +16,8 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
         private readonly DbSet<TEntity> dbSet;
 
         /// <summary>
-        /// The constructor that implements
-        /// generic repository pattern
+        /// Constructs database context and dbSet
+        /// based on TEntity type
         /// </summary>
         /// <param name="context"></param>
         public EntityGenericRepository(EntityCoreContext context)

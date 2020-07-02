@@ -7,11 +7,18 @@ using System.Linq;
 
 namespace CoreApiForComputers.DataBase.EntityImplementations
 {
+    /// <summary>
+    /// Contains logic for inmemory repository implementation
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
     public class MemoryGenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntityOfParts
     {
         //private static readonly List<CpuEntity> cpus = new CpuInMemory().ReturnCpus();
         private readonly List<TEntity> entities;
 
+        /// <summary>
+        /// Constructs list of entities based on TEntity type
+        /// </summary>
         public MemoryGenericRepository()
         {
             var typeOfEntity = typeof(TEntity);
