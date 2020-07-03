@@ -8,7 +8,7 @@ using System.Linq;
 namespace CoreApiForComputers.DataBase.EntityImplementations
 {
     /// <summary>
-    /// Contains logic for inmemory repository implementation
+    /// Contains logic for in memory repository implementation
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     public class MemoryGenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntityOfParts
