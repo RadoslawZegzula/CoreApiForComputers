@@ -3,6 +3,7 @@ using CoreApiForComputers.Models.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 
 namespace CoreApiForComputers.Controllers
@@ -25,7 +26,7 @@ namespace CoreApiForComputers.Controllers
         /// <param name="data"></param>
         public GpusController(IGenericRepository<GpuEntity> data)
         {
-            database = data;
+            database = data ?? throw new ArgumentNullException(nameof(data));
         }
 
         /// <summary>
