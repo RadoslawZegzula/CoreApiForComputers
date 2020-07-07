@@ -26,6 +26,7 @@ namespace CoreApiForComputers
     public class Startup
     {
         /// <summary>
+        /// Injects configuration
         /// </summary>
         /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
@@ -34,11 +35,12 @@ namespace CoreApiForComputers
         }
 
         /// <summary>
+        /// 
         /// </summary>
         public IConfiguration Configuration { get; }
 
         /// <summary>
-        /// Services are registered in ConfigureServices and consumed across the app 
+        /// Registered in ConfigureServices and consumed across the app 
         /// via dependency injection (DI) or ApplicationServices.
         /// </summary>
         /// <param name="services"></param>
@@ -150,7 +152,7 @@ namespace CoreApiForComputers
 
 
         /// <summary>
-        /// This method gets called by the runtime and is used 
+        /// Is called by the runtime and is used 
         /// to configure the HTTP request pipeline.
         /// </summary>
         /// <param name="app"></param>
