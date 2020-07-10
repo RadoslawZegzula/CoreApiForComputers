@@ -15,7 +15,7 @@ namespace CoreApiForComputers.Models.Entities
         public int Id { get; set; }
 
         /// <summary>
-        /// Name of the part
+        /// The name of the part
         /// </summary>
         [Required()]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 3)]
@@ -24,7 +24,7 @@ namespace CoreApiForComputers.Models.Entities
         /// <summary>
         /// The price of a part
         /// </summary>
-        [Range(0,1000000,ErrorMessage ="Price is too high or negative")]
+        [Range(0,1000000, ErrorMessage ="Price is too high or negative")]
         public decimal Price { get; set; }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace CoreApiForComputers.Models.Entities
         /// The number of parts that
         /// are available
         /// </summary>
-        [Range(0,10000,ErrorMessage ="Stock value is too high or negative")]
+        [Range(0,10000, ErrorMessage ="Stock value is too high or negative")]
         public int Stock { get; set; }
 
         /// <summary>
