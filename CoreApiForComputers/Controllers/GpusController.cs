@@ -3,6 +3,7 @@ using CoreApiForComputers.Models.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 
 namespace CoreApiForComputers.Controllers
@@ -19,13 +20,13 @@ namespace CoreApiForComputers.Controllers
         private readonly IGenericRepository<GpuEntity> database;
 
         /// <summary>
-        /// The constructor that initialize database access
+        /// Initializes database access
         /// by dependency injection
         /// </summary>
         /// <param name="data"></param>
         public GpusController(IGenericRepository<GpuEntity> data)
         {
-            database = data;
+            database = data ?? throw new ArgumentNullException(nameof(data));
         }
 
         /// <summary>
@@ -43,7 +44,7 @@ namespace CoreApiForComputers.Controllers
         /// <summary>
         /// Returns one graphics_processing_unit
         /// </summary>
-        /// <param name="gpuId">The id of the GpuEntity you want to get</param>
+        /// <param name="gpuId">The id of the requested GpuEntity </param>
         /// <returns>An ActionResult of type GpuEntity</returns>
         [HttpGet("{gpuId}", Name = "GetGpu")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -55,7 +56,7 @@ namespace CoreApiForComputers.Controllers
         }
 
         /// <summary>
-        /// Create one graphics_processing_unit and results 
+        /// Creates graphics_processing_unit and results 
         /// created graphics_processing_unit
         /// </summary>
         /// <param name="gpuForCreation">The graphics_processing_unit to create</param>

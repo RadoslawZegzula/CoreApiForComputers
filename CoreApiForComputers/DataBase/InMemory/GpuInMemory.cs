@@ -34,9 +34,9 @@ namespace CoreApiForComputers.DataBase.InMemory
         }
 
         /// <summary>
-        /// Returns a collection
+        /// Returns a graphics_processing_units
         /// </summary>
-        /// <returns>The graphics_processing_units </returns>
+        /// <returns>The list of graphics_processing_units </returns>
         public static List<GpuEntity> ReturnGpus()
         {
             return gpus;

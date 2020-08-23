@@ -34,9 +34,9 @@ namespace CoreApiForComputers.DataBase.InMemory
         }
 
         /// <summary>
-        /// Returns a collection
+        /// Returns a central_processing_units
         /// </summary>
-        /// <returns>The central_processing_units </returns>
+        /// <returns>The list of central_processing_units </returns>
         public static List<CpuEntity> ReturnCpus()
         {
             return cpus;
