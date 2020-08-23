@@ -81,7 +81,7 @@ namespace CoreApiForComputers.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         public ActionResult<CpuEntity> CreateCpu([FromBody] CpuEntity cpuForCreation)
         {
-            if (database.Read<CpuEntity>(cpuForCreation.Id) == null)
+            if (database.Read<CpuEntity>(cpuForCreation.Id) != null)
             {
                 return UnprocessableEntity();
             }

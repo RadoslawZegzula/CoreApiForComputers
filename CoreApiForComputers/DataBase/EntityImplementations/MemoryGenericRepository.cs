@@ -39,7 +39,7 @@ namespace CoreApiForComputers.DataBase.EntityImplementations
 
         public TEntity Read<T>(int id)
         {
-            return entities.First(e => e.Id == id);
+            return entities.FirstOrDefault(e => e.Id == id);
         }
 
         public IEnumerable<TEntity> Read<T>(BasePartFiltringParameters parameters)
